@@ -1,7 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: implicit_dynamic_parameter
-
 part of 'news_article.dart';
 
 // **************************************************************************
@@ -32,14 +30,6 @@ NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) => $checkedCreate(
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           newsWebsite: $checkedConvert('news_website',
               (v) => NewsWebsite.fromJson(v as Map<String, dynamic>)),
-          articleS3Filename:
-              $checkedConvert('article_s3_filename', (v) => v as String),
-          fetchedAt:
-              $checkedConvert('fetched_at', (v) => DateTime.parse(v as String)),
-          createdAt:
-              $checkedConvert('created_at', (v) => DateTime.parse(v as String)),
-          updatedAt:
-              $checkedConvert('updated_at', (v) => DateTime.parse(v as String)),
         );
         return val;
       },
@@ -49,10 +39,24 @@ NewsArticle _$NewsArticleFromJson(Map<String, dynamic> json) => $checkedCreate(
         'articleUrl': 'article_url',
         'imageUrl': 'image_url',
         'publishedAt': 'published_at',
-        'newsWebsite': 'news_website',
-        'articleS3Filename': 'article_s3_filename',
-        'fetchedAt': 'fetched_at',
-        'createdAt': 'created_at',
-        'updatedAt': 'updated_at'
+        'newsWebsite': 'news_website'
       },
     );
+
+Map<String, dynamic> _$NewsArticleToJson(NewsArticle instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'short_news': instance.shortNews,
+      'headline': instance.headline,
+      'author': instance.author,
+      'news_website_id': instance.newsWebsiteId,
+      'article_url': instance.articleUrl,
+      'image_url': instance.imageUrl,
+      'published_at': instance.publishedAt.toIso8601String(),
+      'source': instance.source,
+      'country': instance.country,
+      'language': instance.language,
+      'category': instance.category,
+      'keywords': instance.keywords,
+      'news_website': instance.newsWebsite,
+    };

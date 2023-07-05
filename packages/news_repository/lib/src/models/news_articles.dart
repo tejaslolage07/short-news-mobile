@@ -1,12 +1,13 @@
 // ignore_for_file: public_member_api_docs
 
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:news_api/news_api.dart';
+import 'package:news_repository/src/models/news_article.dart';
 
 part 'news_articles.g.dart';
 
 @JsonSerializable()
-class NewsArticles {
+class NewsArticles extends Equatable {
   const NewsArticles({
     required this.articles,
     required this.perPage,

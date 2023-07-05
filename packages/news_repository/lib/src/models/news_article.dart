@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:news_api/src/models/news_website.dart';
+import 'package:news_repository/src/models/news_website.dart';
 
 part 'news_article.g.dart';
 
@@ -22,10 +22,6 @@ class NewsArticle {
     required this.category,
     required this.keywords,
     required this.newsWebsite,
-    required this.articleS3Filename,
-    required this.fetchedAt,
-    required this.createdAt,
-    required this.updatedAt,
   });
 
   factory NewsArticle.fromJson(Map<String, dynamic> json) =>
@@ -43,14 +39,6 @@ class NewsArticle {
   final String imageUrl;
   @JsonKey(name: 'published_at')
   final DateTime publishedAt;
-  @JsonKey(name: 'fetched_at')
-  final DateTime fetchedAt;
-  @JsonKey(name: 'article_s3_filename')
-  final String articleS3Filename;
-  @JsonKey(name: 'created_at')
-  final DateTime createdAt;
-  @JsonKey(name: 'updated_at')
-  final DateTime updatedAt;
   final String source;
   final List<String> country;
   final String language;

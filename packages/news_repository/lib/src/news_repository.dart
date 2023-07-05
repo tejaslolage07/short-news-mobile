@@ -1,4 +1,4 @@
-import 'package:news_api/news_api.dart';
+import 'package:news_api/news_api.dart' hide NewsArticle, NewsWebsite;
 import 'package:news_repository/news_repository.dart';
 
 /// {@template news_repository}
@@ -16,8 +16,34 @@ class NewsRepository {
       cursor: cursor,
       count: count,
     );
+
+    final List<NewsArticle> articles = [];
+
+    for (var article in newsApiResponse.articles) {
+      articles.add(
+        NewsArticle(
+          id: article.id,
+          shortNews: article.shortNews,
+          headline: article.headline,
+          author: article.author,
+          newsWebsiteId: article.newsWebsiteId,
+          articleUrl: article.articleUrl,
+          imageUrl: article.imageUrl,
+          publishedAt: article.publishedAt,
+          source: article.source,
+          country: article.country,
+          language: article.language,
+          category: article.category,
+          keywords: article.keywords,
+          newsWebsite: NewsWebsite(
+            id: article.newsWebsite.id,
+            website: article.newsWebsite.website,
+          ),
+        ),
+      );
+    }
     return NewsArticles(
-      articles: newsApiResponse.articles,
+      articles: articles,
       nextCursor: newsApiResponse.nextCursor,
       prevCursor: newsApiResponse.prevCursor,
       perPage: newsApiResponse.perPage,

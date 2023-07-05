@@ -9,8 +9,6 @@ class NewsWebsite {
   const NewsWebsite({
     required this.website,
     required this.id,
-    required this.createdAt,
-    required this.updatedAt,
   });
 
   factory NewsWebsite.fromJson(Map<String, dynamic> json) =>
@@ -18,8 +16,4 @@ class NewsWebsite {
 
   final String website;
   final int id;
-  @JsonKey(name: 'created_at')
-  final DateTime createdAt;
-  @JsonKey(name: 'updated_at')
-  final DateTime updatedAt;
 }

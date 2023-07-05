@@ -10,8 +10,11 @@ class NewsApiResponse {
   const NewsApiResponse({
     required this.articles,
     required this.perPage,
-    this.nextCursor,
-    this.prevCursor,
+    required this.path,
+    required this.nextPageUrl,
+    required this.prevPageUrl,
+    required this.nextCursor,
+    required this.prevCursor,
   });
   factory NewsApiResponse.fromJson(Map<String, dynamic> json) =>
       _$NewsApiResponseFromJson(json);
@@ -24,4 +27,9 @@ class NewsApiResponse {
   final String? prevCursor;
   @JsonKey(name: 'per_page')
   final int perPage;
+  final String path;
+  @JsonKey(name: 'next_page_url')
+  final String nextPageUrl;
+  @JsonKey(name: 'prev_page_url')
+  final String prevPageUrl;
 }
