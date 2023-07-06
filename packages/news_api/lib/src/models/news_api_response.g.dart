@@ -21,8 +21,8 @@ NewsApiResponse _$NewsApiResponseFromJson(Map<String, dynamic> json) =>
                   .toList()),
           perPage: $checkedConvert('per_page', (v) => v as int),
           path: $checkedConvert('path', (v) => v as String),
-          nextPageUrl: $checkedConvert('next_page_url', (v) => v as String),
-          prevPageUrl: $checkedConvert('prev_page_url', (v) => v as String),
+          nextPageUrl: $checkedConvert('next_page_url', (v) => v as String?),
+          prevPageUrl: $checkedConvert('prev_page_url', (v) => v as String?),
           nextCursor: $checkedConvert('next_cursor', (v) => v as String?),
           prevCursor: $checkedConvert('prev_cursor', (v) => v as String?),
         );
@@ -37,3 +37,14 @@ NewsApiResponse _$NewsApiResponseFromJson(Map<String, dynamic> json) =>
         'prevCursor': 'prev_cursor'
       },
     );
+
+Map<String, dynamic> _$NewsApiResponseToJson(NewsApiResponse instance) =>
+    <String, dynamic>{
+      'data': instance.articles.map((e) => e.toJson()).toList(),
+      'next_cursor': instance.nextCursor,
+      'prev_cursor': instance.prevCursor,
+      'per_page': instance.perPage,
+      'path': instance.path,
+      'next_page_url': instance.nextPageUrl,
+      'prev_page_url': instance.prevPageUrl,
+    };

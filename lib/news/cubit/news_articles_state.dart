@@ -25,10 +25,30 @@ final class NewsArticlesState extends Equatable {
   NewsArticlesState copyWith({
     NewsArticlesStatus? status,
     NewsArticles? newsArticles,
+    bool isRefresh = false,
   }) {
+    if (newsArticles == null) {
+      return NewsArticlesState(
+        status: status ?? this.status,
+        newsArticles: this.newsArticles,
+      );
+    }
+
+    if (isRefresh) {
+      return NewsArticlesState(
+        status: status ?? this.status,
+        newsArticles: newsArticles,
+      );
+    }
+
     return NewsArticlesState(
       status: status ?? this.status,
-      newsArticles: newsArticles ?? this.newsArticles,
+      newsArticles: NewsArticles(
+        articles: this.newsArticles.articles + newsArticles.articles,
+        nextCursor: newsArticles.nextCursor,
+        prevCursor: this.newsArticles.prevCursor,
+        perPage: newsArticles.perPage,
+      ),
     );
   }
 

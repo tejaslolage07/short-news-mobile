@@ -20,6 +20,8 @@ class NewsArticles extends Equatable {
   factory NewsArticles.fromJson(Map<String, dynamic> json) =>
       _$NewsArticlesFromJson(json);
 
+  Map<String, dynamic> toJson() => _$NewsArticlesToJson(this);
+
   factory NewsArticles.fromRepository(
       newsRepository.NewsArticles articlesList) {
     final List<NewsArticle> newsArticles = [];
@@ -55,7 +57,7 @@ class NewsArticles extends Equatable {
     );
   }
 
-  static final empty = NewsArticles(
+  static NewsArticles empty = NewsArticles(
     articles: [],
     nextCursor: null,
     prevCursor: null,
@@ -72,5 +74,6 @@ class NewsArticles extends Equatable {
   final int perPage;
 
   @override
-  List<Object> get props => [articles, nextCursor!, prevCursor!, perPage];
+  List<Object> get props =>
+      [articles, nextCursor ?? '', prevCursor ?? '', perPage];
 }

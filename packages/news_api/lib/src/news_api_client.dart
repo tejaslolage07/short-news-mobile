@@ -1,5 +1,6 @@
-import 'dart:async';
 import 'dart:convert';
+import 'dart:core';
+
 import 'package:http/http.dart' as http;
 import 'package:news_api/news_api.dart';
 
@@ -16,15 +17,9 @@ class NewsApiCLient {
 
   Future<NewsApiResponse> getNewsArticles(
       {String? cursor, int count = 100}) async {
-    final queryParams = {'count': '$count', cursor ?? 'cursor': cursor};
-    print(queryParams);
-    final request = Uri.https(
-      _baseApiUrl,
-      '/news',
-      queryParams,
-    );
+    var url = '$_baseApiUrl/news?cursor=$cursor&count=$count';
 
-    final response = await _httpClient.get(request);
+    final response = await _httpClient.get(Uri.parse(url));
     if (response.statusCode != 200) {
       throw Exception(response.toString());
     }

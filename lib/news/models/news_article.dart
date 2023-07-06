@@ -27,6 +27,8 @@ class NewsArticle {
   factory NewsArticle.fromJson(Map<String, dynamic> json) =>
       _$NewsArticleFromJson(json);
 
+  Map<String, dynamic> toJson() => _$NewsArticleToJson(this);
+
   final int id;
   final String shortNews;
   final String headline;

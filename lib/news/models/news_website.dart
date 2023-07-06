@@ -14,6 +14,8 @@ class NewsWebsite {
   factory NewsWebsite.fromJson(Map<String, dynamic> json) =>
       _$NewsWebsiteFromJson(json);
 
+  Map<String, dynamic> toJson() => _$NewsWebsiteToJson(this);
+
   final String website;
   final int id;
 }

@@ -31,31 +31,33 @@ class NewsArticle {
   factory NewsArticle.fromJson(Map<String, dynamic> json) =>
       _$NewsArticleFromJson(json);
 
+  Map<String, dynamic> toJson() => _$NewsArticleToJson(this);
+
   final int id;
   final String shortNews;
   final String headline;
-  final String author;
+  final String? author;
   @JsonKey(name: 'news_website_id')
   final int newsWebsiteId;
   @JsonKey(name: 'article_url')
   final String articleUrl;
   @JsonKey(name: 'image_url')
-  final String imageUrl;
+  final String? imageUrl;
   @JsonKey(name: 'published_at')
   final DateTime publishedAt;
   @JsonKey(name: 'fetched_at')
   final DateTime fetchedAt;
   @JsonKey(name: 'article_s3_filename')
-  final String articleS3Filename;
+  final String? articleS3Filename;
   @JsonKey(name: 'created_at')
   final DateTime createdAt;
   @JsonKey(name: 'updated_at')
   final DateTime updatedAt;
-  final String source;
-  final List<String> country;
-  final String language;
-  final List<String> category;
-  final List<String> keywords;
+  final String? source;
+  final List<String>? country;
+  final String? language;
+  final List<String>? category;
+  final List<String>? keywords;
   @JsonKey(name: 'news_website')
   final NewsWebsite newsWebsite;
 }

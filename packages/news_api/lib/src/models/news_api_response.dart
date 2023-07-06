@@ -19,6 +19,8 @@ class NewsApiResponse {
   factory NewsApiResponse.fromJson(Map<String, dynamic> json) =>
       _$NewsApiResponseFromJson(json);
 
+  Map<String, dynamic> toJson() => _$NewsApiResponseToJson(this);
+
   @JsonKey(name: 'data')
   final List<NewsArticle> articles;
   @JsonKey(name: 'next_cursor')
@@ -29,7 +31,7 @@ class NewsApiResponse {
   final int perPage;
   final String path;
   @JsonKey(name: 'next_page_url')
-  final String nextPageUrl;
+  final String? nextPageUrl;
   @JsonKey(name: 'prev_page_url')
-  final String prevPageUrl;
+  final String? prevPageUrl;
 }

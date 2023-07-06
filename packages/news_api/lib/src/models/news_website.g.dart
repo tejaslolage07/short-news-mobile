@@ -24,3 +24,11 @@ NewsWebsite _$NewsWebsiteFromJson(Map<String, dynamic> json) => $checkedCreate(
       },
       fieldKeyMap: const {'createdAt': 'created_at', 'updatedAt': 'updated_at'},
     );
+
+Map<String, dynamic> _$NewsWebsiteToJson(NewsWebsite instance) =>
+    <String, dynamic>{
+      'website': instance.website,
+      'id': instance.id,
+      'created_at': instance.createdAt.toIso8601String(),
+      'updated_at': instance.updatedAt.toIso8601String(),
+    };
