@@ -36,7 +36,6 @@ Map<String, dynamic> _$NewsArticlesStateToJson(NewsArticlesState instance) =>
 
 const _$NewsArticlesStatusEnumMap = {
   NewsArticlesStatus.initial: 'initial',
-  NewsArticlesStatus.loading: 'loading',
   NewsArticlesStatus.success: 'success',
   NewsArticlesStatus.failure: 'failure',
 };

@@ -13,14 +13,13 @@ class NewsArticlesCubit extends Cubit<NewsArticlesState> {
   final NewsRepository _newsRepository;
 
   Future<void> fetchNewsArticles({String? cursor, int count = 100}) async {
-    emit(state.copyWith(status: NewsArticlesStatus.loading));
     try {
       final newsArticles = NewsArticles.fromRepository(
           await _newsRepository.getNewsArticles(cursor: cursor, count: count));
       emit(state.copyWith(
         status: NewsArticlesStatus.success,
         newsArticles: newsArticles,
-        isRefresh: cursor == null,
+        isRefresh: cursor == null || cursor == '',
       ));
     } on Exception {
       emit(state.copyWith(status: NewsArticlesStatus.failure));

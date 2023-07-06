@@ -1,10 +1,9 @@
 part of 'news_articles_cubit.dart';
 
-enum NewsArticlesStatus { initial, loading, success, failure }
+enum NewsArticlesStatus { initial, success, failure }
 
 extension NewsArticlesStatusX on NewsArticlesStatus {
   bool get isInitial => this == NewsArticlesStatus.initial;
-  bool get isLoading => this == NewsArticlesStatus.loading;
   bool get isSuccess => this == NewsArticlesStatus.success;
   bool get isFailure => this == NewsArticlesStatus.failure;
 }
@@ -40,7 +39,6 @@ final class NewsArticlesState extends Equatable {
         newsArticles: newsArticles,
       );
     }
-
     return NewsArticlesState(
       status: status ?? this.status,
       newsArticles: NewsArticles(
