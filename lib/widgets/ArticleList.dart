@@ -11,7 +11,7 @@ class ArticleList extends StatelessWidget {
   Widget build(BuildContext context) {
     final stateProvider = BlocProvider.of<NewsArticlesCubit>(context);
     return RefreshIndicator(
-      onRefresh: () => stateProvider.fetchNewsArticles(count: 10),
+      onRefresh: () => stateProvider.fetchNewsArticles(count: 100),
       child: PageView.builder(
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
@@ -32,7 +32,7 @@ class ArticleList extends StatelessWidget {
           } else {
             stateProvider.fetchNewsArticles(
                 cursor: stateProvider.state.newsArticles.nextCursor,
-                count: 1000);
+                count: 100);
             return const Center(child: CircularProgressIndicator());
           }
         },
