@@ -4,6 +4,7 @@ import 'package:short_news_mobile/news/cubit/news_articles_cubit.dart';
 import 'package:news_repository/news_repository.dart';
 import 'package:short_news_mobile/widgets/%20news_articles_app_bar.dart';
 import 'package:short_news_mobile/widgets/article_list.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewsArticlesPage extends StatelessWidget {
   const NewsArticlesPage({super.key});
@@ -25,11 +26,14 @@ class NewsArticlesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context)!;
     return BlocBuilder<NewsArticlesCubit, NewsArticlesState>(
       builder: (context, state) {
         switch (state.status) {
           case NewsArticlesStatus.failure:
-            return const Center(child: Text('Failed to fetch news articles'));
+            return Center(
+              child: Text(localizations.failedToLoadArticles),
+            );
           case NewsArticlesStatus.success:
             return ArticleList();
           case NewsArticlesStatus.initial:
