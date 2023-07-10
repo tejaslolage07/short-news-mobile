@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class PublishedAtNewsWebsite extends StatelessWidget {
-  final String publishedAt;
+  final DateTime publishedAt;
   final String newsWebsite;
 
   const PublishedAtNewsWebsite({
@@ -14,15 +13,11 @@ class PublishedAtNewsWebsite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String formattedDateTime =
-        timeago.format(DateTime.parse(publishedAt), locale: 'en_short');
+    String formattedDateTime = timeago.format(publishedAt,
+        locale: Localizations.localeOf(context).toString());
     return Text(
-      '$newsWebsite  /  $formattedDateTime ago',
-      style: GoogleFonts.ubuntu(
-        color: const Color.fromARGB(255, 120, 120, 120),
-        fontSize: 10,
-        decoration: TextDecoration.none,
-      ),
+      '$newsWebsite  /  $formattedDateTime',
+      style: Theme.of(context).textTheme.bodySmall,
     );
   }
 }
