@@ -14,10 +14,13 @@ class ArticleImage extends StatelessWidget {
         imageUrl: url,
         fit: BoxFit.fill,
         width: double.infinity,
-        errorWidget: (context, url, error) => const Placeholder(),
-        placeholder: (context, url) => const SizedBox(
-          height: 60,
-          child: Center(child: CircularProgressIndicator.adaptive()),
+        errorWidget: (context, url, error) => Image.asset(
+          'assets/images/placeholder.png',
+          fit: BoxFit.fill,
+        ),
+        placeholder: (context, url) => Image.asset(
+          'assets/images/placeholder.png',
+          fit: BoxFit.fill,
         ),
       ),
     );
