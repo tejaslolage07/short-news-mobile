@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ShortNews extends StatelessWidget {
   const ShortNews({Key? key, required this.newsArticle}) : super(key: key);
@@ -8,16 +7,9 @@ class ShortNews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Text(
-        newsArticle,
-        style: GoogleFonts.ubuntu(
-          fontSize: 16,
-          fontWeight: FontWeight.normal,
-          color: Colors.black,
-          decoration: TextDecoration.none,
-        ),
-      ),
+    return Text(
+      newsArticle,
+      style: Theme.of(context).textTheme.bodyLarge,
     );
   }
 }
