@@ -5,8 +5,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:short_news_mobile/widgets/article.dart';
 
 class ArticleList extends StatelessWidget {
-  ArticleList({super.key});
-
+  const ArticleList({super.key});
   @override
   Widget build(BuildContext context) {
     final stateProvider = BlocProvider.of<NewsArticlesCubit>(context);

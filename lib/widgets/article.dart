@@ -22,47 +22,28 @@ class ArticleWidget extends StatelessWidget {
           child: ArticleImage(article.imageUrl),
         ),
         Positioned(
-          right: 5,
-          left: 5,
+          right: 10,
+          left: 10,
           top: 4 + mediaQuery.size.height / 3.2,
-          child: Container(
-            color: Colors.black.withOpacity(0.3),
-            height: mediaQuery.size.height / 10,
-            width: mediaQuery.size.width,
-            child: Headline(text: article.headline),
-          ),
-        ),
-        Positioned(
-          right: 5,
-          left: 5,
-          top: 10 + mediaQuery.size.height / 3.2 + mediaQuery.size.height / 10,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxHeight: mediaQuery.size.height / 2.45,
-                ),
-                child: Scrollbar(
-                  radius: const Radius.circular(5),
-                  thickness: 5,
-                  child: SingleChildScrollView(
-                    child: Container(
-                      color: Colors.blue.withOpacity(0.9),
-                      child: ShortNews(newsArticle: article.shortNews),
-                    ),
+          bottom: 45,
+          child: SizedBox(
+            height: double.infinity,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Headline(text: article.headline),
+                  const SizedBox(height: 5),
+                  ShortNews(newsArticle: article.shortNews),
+                  const SizedBox(height: 5),
+                  PublishedAtNewsWebsite(
+                    publishedAt: article.publishedAt,
+                    newsWebsite: article.newsWebsite.website,
                   ),
-                ),
+                  const SizedBox(height: 5),
+                ],
               ),
-              Container(
-                padding: const EdgeInsets.only(top: 5),
-                // color: Colors.amber,
-                width: mediaQuery.size.width - 60,
-                child: PublishedAtNewsWebsite(
-                    publishedAt: article.publishedAt.toIso8601String(),
-                    newsWebsite: article.newsWebsite.website),
-              ),
-            ],
+            ),
           ),
         ),
         Positioned(
