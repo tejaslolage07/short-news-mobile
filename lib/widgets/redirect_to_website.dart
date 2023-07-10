@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RedirectToWebsite extends StatelessWidget {
   final String url;
@@ -20,7 +21,7 @@ class RedirectToWebsite extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       child: Text(
-        Intl.message('openInBrowser'),
+        AppLocalizations.of(context)!.openInBrowser,
         style: Theme.of(context).textTheme.bodyLarge,
       ),
     );

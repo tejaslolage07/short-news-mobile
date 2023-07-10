@@ -15,7 +15,7 @@
   "@endOfListText": {
     "description": "Text displayed at the end of the list of articles"
   },
-  "openInBrowser": "Open URL in browser",
+  "openInBrowser": "Click here to read more",
   "@openInBrowser": {
     "description": "Text for the context menu item that opens the article in the browser"
   },
