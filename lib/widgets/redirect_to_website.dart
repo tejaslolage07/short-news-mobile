@@ -19,7 +19,10 @@ class RedirectToWebsite extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: Text(Intl.message('openInBrowser')),
+      child: Text(
+        Intl.message('openInBrowser'),
+        style: Theme.of(context).textTheme.bodyLarge,
+      ),
     );
   }
 }
