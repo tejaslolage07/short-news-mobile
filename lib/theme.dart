@@ -12,6 +12,7 @@ class AppTheme {
     );
 
     return ThemeData(
+      useMaterial3: true,
       colorScheme: colorScheme,
       appBarTheme: AppBarTheme(
         backgroundColor: colorScheme.primary,
@@ -49,6 +50,7 @@ class AppTheme {
     );
 
     return ThemeData.dark().copyWith(
+      useMaterial3: true,
       colorScheme: darkColorScheme,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: darkColorScheme.primary,
