@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:short_news_mobile/news/cubit/news_articles_cubit.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ArticleList extends StatelessWidget {
   ArticleList({super.key});
@@ -10,6 +11,7 @@ class ArticleList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final stateProvider = BlocProvider.of<NewsArticlesCubit>(context);
+    final localization = AppLocalizations.of(context)!;
     return RefreshIndicator(
       onRefresh: () => stateProvider.fetchNewsArticles(count: 100),
       child: PageView.builder(
@@ -26,8 +28,8 @@ class ArticleList extends StatelessWidget {
                   stateProvider.state.newsArticles.articles.length &&
               (stateProvider.state.newsArticles.nextCursor == null ||
                   stateProvider.state.newsArticles.nextCursor == '')) {
-            return const Center(
-              child: Text('Hit Refresh to fetch the latest articles'),
+            return Center(
+              child: Text(localization.endOfListText),
             );
           } else {
             stateProvider.fetchNewsArticles(
