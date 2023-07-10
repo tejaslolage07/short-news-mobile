@@ -14,7 +14,6 @@ class ArticleImage extends StatelessWidget {
         imageUrl: url,
         fit: BoxFit.fill,
         width: double.infinity,
-        height: url == '' ? 200 : 300,
         errorWidget: (context, url, error) => const Placeholder(),
         placeholder: (context, url) => const SizedBox(
           height: 60,
