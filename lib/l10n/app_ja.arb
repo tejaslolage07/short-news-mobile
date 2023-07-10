@@ -2,5 +2,7 @@
     "language": "言語",
     "articleAppBarTitle": "餌",
     "failedToLoadArticles": "ニュース記事の取得に失敗しました",
-    "endOfListText": "リストの終わり"
+    "endOfListText": "リストの終わり",
+    "openInBrowser": "ブラウザでURLを開く",
+    "couldNotOpen": "URLを開けませんでした"
 }

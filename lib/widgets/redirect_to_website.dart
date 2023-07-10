@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RedirectToWebsite extends StatelessWidget {
@@ -9,7 +10,8 @@ class RedirectToWebsite extends StatelessWidget {
   void onPressed() async {
     final Uri urlToBeLaunched = Uri.parse(url);
     if (!await launchUrl(urlToBeLaunched)) {
-      throw Exception('Could not launch $urlToBeLaunched');
+      var couldNotOpen = Intl.message('couldNotOpen');
+      throw Exception('$couldNotOpen $urlToBeLaunched');
     }
   }
 
@@ -17,7 +19,7 @@ class RedirectToWebsite extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: const Text('Open URL in browser'),
+      child: Text(Intl.message('openInBrowser')),
     );
   }
 }
