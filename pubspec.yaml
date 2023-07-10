@@ -49,9 +49,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.12
-
   share: ^2.0.4
-
   timeago: ^3.5.0
 
 dev_dependencies:

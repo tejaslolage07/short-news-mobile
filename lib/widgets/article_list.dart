@@ -1,9 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:short_news_mobile/news/cubit/news_articles_cubit.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:short_news_mobile/widgets/article.dart';
 
 class ArticleList extends StatelessWidget {
   ArticleList({super.key});
@@ -19,11 +18,7 @@ class ArticleList extends StatelessWidget {
         itemBuilder: (context, index) {
           if (index < stateProvider.state.newsArticles.articles.length) {
             final article = stateProvider.state.newsArticles.articles[index];
-            return Container(
-              child: Text('${article.id}'),
-              color: Color(Random().nextInt(0xffffffff)),
-              height: MediaQuery.of(context).size.height,
-            );
+            return ArticleWidget(article);
           } else if (index ==
                   stateProvider.state.newsArticles.articles.length &&
               (stateProvider.state.newsArticles.nextCursor == null ||
