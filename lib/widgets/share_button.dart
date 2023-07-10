@@ -15,7 +15,7 @@ class ShareButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
+    return FloatingActionButton.small(
       onPressed: onPressed,
       child: const Icon(Icons.share),
     );
