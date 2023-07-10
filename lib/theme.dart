@@ -25,8 +25,9 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(colorScheme.primary),
-          foregroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
+          backgroundColor: MaterialStateProperty.all(Colors.transparent),
+          elevation: MaterialStateProperty.all(1),
+          // foregroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
           shape: MaterialStateProperty.all(
             const RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
