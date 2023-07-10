@@ -25,17 +25,17 @@ class AppTheme {
       ),
       textTheme: TextTheme(
         titleSmall: GoogleFonts.ubuntu(
-          fontSize: 20,
+          fontSize: 18,
           fontWeight: FontWeight.bold,
           color: Colors.black,
         ),
         bodyLarge: GoogleFonts.ubuntu(
-          fontSize: 20,
+          fontSize: 17,
           fontWeight: FontWeight.normal,
           color: Colors.black54,
         ),
         bodySmall: GoogleFonts.ubuntu(
-          fontSize: 12,
+          fontSize: 13,
           fontWeight: FontWeight.normal,
           color: Colors.black38,
         ),
