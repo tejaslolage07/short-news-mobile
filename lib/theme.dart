@@ -14,6 +14,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
+      scaffoldBackgroundColor: Colors.white,
       appBarTheme: AppBarTheme(
         backgroundColor: colorScheme.primary,
         foregroundColor: Colors.white,
@@ -26,17 +27,17 @@ class AppTheme {
         titleSmall: GoogleFonts.ubuntu(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: colorScheme.onPrimary,
+          color: Colors.black,
         ),
-        bodyMedium: GoogleFonts.ubuntu(
-          fontSize: 14,
+        bodyLarge: GoogleFonts.ubuntu(
+          fontSize: 20,
           fontWeight: FontWeight.normal,
-          color: colorScheme.onPrimary,
+          color: Colors.black54,
         ),
         bodySmall: GoogleFonts.ubuntu(
           fontSize: 12,
           fontWeight: FontWeight.normal,
-          color: colorScheme.onPrimary,
+          color: Colors.black38,
         ),
       ),
     );
