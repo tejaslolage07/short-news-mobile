@@ -22,10 +22,10 @@ class ArticleWidget extends StatelessWidget {
           child: ArticleImage(article.imageUrl),
         ),
         Positioned(
-          right: 10,
-          left: 10,
+          right: 14,
+          left: 14,
           top: 4 + mediaQuery.size.height / 3.2,
-          bottom: 45,
+          bottom: 0,
           child: SizedBox(
             height: double.infinity,
             child: SingleChildScrollView(
@@ -33,14 +33,16 @@ class ArticleWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Headline(text: article.headline),
-                  const SizedBox(height: 5),
-                  ShortNews(newsArticle: article.shortNews),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 7),
                   PublishedAtNewsWebsite(
                     publishedAt: article.publishedAt,
                     newsWebsite: article.newsWebsite.website,
                   ),
-                  const SizedBox(height: 5),
+                  const SizedBox(height: 10),
+                  ShortNews(newsArticle: article.shortNews),
+                  const SizedBox(
+                    height: 40,
+                  ),
                 ],
               ),
             ),
@@ -48,19 +50,17 @@ class ArticleWidget extends StatelessWidget {
         ),
         Positioned(
           right: 5,
-          bottom: 45,
+          top: mediaQuery.size.height / 3.2 - 50,
           child: ShareButton(url: article.articleUrl),
         ),
         Positioned(
           right: 0,
           bottom: 0,
           left: 0,
-          child: Container(
-            height: 40,
-            width: mediaQuery.size.width,
-            color: Colors.white,
-            child: RedirectToWebsite(url: article.articleUrl),
-          ),
+          child: SizedBox(
+              //color: Colors.transparent,
+              height: 30,
+              child: RedirectToWebsite(url: article.articleUrl)),
         ),
       ],
     );
