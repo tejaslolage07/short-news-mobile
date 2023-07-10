@@ -15,20 +15,9 @@ class ShareButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: InkWell(
-        onTap: onPressed,
-        child: Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(16.0),
-              topRight: Radius.circular(16.0),
-            ),
-            color: Colors.blue,
-          ),
-          child: const Icon(Icons.share, color: Colors.white),
-        ),
-      ),
+    return FloatingActionButton.small(
+      onPressed: onPressed,
+      child: const Icon(Icons.share),
     );
   }
 }
