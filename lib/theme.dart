@@ -17,35 +17,14 @@ class AppTheme {
         backgroundColor: colorScheme.primary,
         foregroundColor: Colors.white,
       ),
-      cardTheme: CardTheme(
-        color: colorScheme.secondary,
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: colorScheme.primary,
-          foregroundColor: colorScheme.onPrimary,
-        ),
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: colorScheme.primary,
+        foregroundColor: colorScheme.onPrimary,
       ),
       textTheme: TextTheme(
-        titleLarge: GoogleFonts.ubuntu(
-          fontSize: 32,
-          fontWeight: FontWeight.bold,
-          color: colorScheme.onPrimary,
-        ),
-        titleMedium: GoogleFonts.ubuntu(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-          color: colorScheme.onPrimary,
-        ),
         titleSmall: GoogleFonts.ubuntu(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: colorScheme.onPrimary,
-        ),
-        bodyLarge: GoogleFonts.ubuntu(
-          fontSize: 16,
-          fontWeight: FontWeight.normal,
           color: colorScheme.onPrimary,
         ),
         bodyMedium: GoogleFonts.ubuntu(
@@ -63,23 +42,17 @@ class AppTheme {
   }
 
   static ThemeData get darkTheme {
-    var colorScheme = ColorScheme.fromSwatch(
+    var darkColorScheme = ColorScheme.fromSwatch(
       primarySwatch: Colors.blueGrey,
       accentColor: Colors.amber,
       brightness: Brightness.dark,
     );
 
     return ThemeData.dark().copyWith(
-      colorScheme: colorScheme,
-      cardTheme: CardTheme(
-        color: colorScheme.secondary,
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: colorScheme.primary,
-          foregroundColor: colorScheme.onPrimary,
-        ),
+      colorScheme: darkColorScheme,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: darkColorScheme.primary,
+        foregroundColor: darkColorScheme.onPrimary,
       ),
     );
   }
