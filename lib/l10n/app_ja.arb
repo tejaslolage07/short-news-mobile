@@ -3,5 +3,6 @@
   "articleAppBarTitle": "餌",
   "failedToLoadArticles": "ニュース記事の取得に失敗しました",
   "endOfListText": "リストの終わり",
-  "openInBrowser": "続きを読むにはここをクリックしてください"
+  "openInBrowser": "続きを読むにはここをクリックしてください",
+  "couldNotOpen": "URLを開けませんでした"
 }
