@@ -23,6 +23,20 @@ class AppTheme {
         backgroundColor: colorScheme.primary,
         foregroundColor: colorScheme.onPrimary,
       ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(colorScheme.primary),
+          foregroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
+          shape: MaterialStateProperty.all(
+            const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16.0),
+                topRight: Radius.circular(16.0),
+              ),
+            ),
+          ),
+        ),
+      ),
       textTheme: TextTheme(
         titleSmall: GoogleFonts.ubuntu(
           fontSize: 18,
@@ -30,12 +44,12 @@ class AppTheme {
           color: Colors.black,
         ),
         bodyLarge: GoogleFonts.ubuntu(
-          fontSize: 17,
+          fontSize: 16,
           fontWeight: FontWeight.normal,
           color: Colors.black54,
         ),
         bodySmall: GoogleFonts.ubuntu(
-          fontSize: 13,
+          fontSize: 14,
           fontWeight: FontWeight.normal,
           color: Colors.black38,
         ),
