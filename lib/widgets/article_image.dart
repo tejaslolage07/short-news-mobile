@@ -11,7 +11,7 @@ class ArticleImage extends StatelessWidget {
       borderOnForeground: true,
       margin: EdgeInsets.zero,
       child: CachedNetworkImage(
-        imageUrl: "http://via.placeholder.com/350x150",
+        imageUrl: url,
         fit: BoxFit.fill,
         width: double.infinity,
         height: url == '' ? 200 : 300,
