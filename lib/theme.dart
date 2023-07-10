@@ -30,12 +30,12 @@ class AppTheme {
           color: Colors.black,
         ),
         bodyLarge: GoogleFonts.ubuntu(
-          fontSize: 16,
+          fontSize: 17,
           fontWeight: FontWeight.normal,
           color: Colors.black54,
         ),
         bodySmall: GoogleFonts.ubuntu(
-          fontSize: 14,
+          fontSize: 13,
           fontWeight: FontWeight.normal,
           color: Colors.black38,
         ),
