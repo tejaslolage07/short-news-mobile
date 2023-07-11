@@ -2,16 +2,26 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:short_news_mobile/news/cubit/news_articles_cubit.dart';
+import 'package:short_news_mobile/news/bloc/news_articles_bloc.dart';
 
 class ArticleList extends StatelessWidget {
   ArticleList({super.key});
 
+  void addFetchEvent(NewsArticleBloc stateProvider,
+      {String cursor = '', int count = 100}) {
+    stateProvider.add(
+      NewsArticlesFetch(
+        cursor: cursor,
+        count: count,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final stateProvider = BlocProvider.of<NewsArticlesCubit>(context);
+    final stateProvider = BlocProvider.of<NewsArticleBloc>(context);
     return RefreshIndicator(
-      onRefresh: () => stateProvider.fetchNewsArticles(count: 100),
+      onRefresh: () async => addFetchEvent(stateProvider),
       child: PageView.builder(
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
@@ -30,9 +40,10 @@ class ArticleList extends StatelessWidget {
               child: Text('Hit Refresh to fetch the latest articles'),
             );
           } else {
-            stateProvider.fetchNewsArticles(
-                cursor: stateProvider.state.newsArticles.nextCursor,
-                count: 100);
+            addFetchEvent(
+              stateProvider,
+              cursor: stateProvider.state.newsArticles.nextCursor ?? '',
+            );
             return const Center(child: CircularProgressIndicator());
           }
         },
