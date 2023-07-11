@@ -19,7 +19,7 @@ class ArticleWidget extends StatelessWidget {
       children: [
         SizedBox(
           height: mediaQuery.size.height / 3.2,
-          child: ArticleImage(article.imageUrl),
+          child: ArticleImage(article.imageUrl.trim()),
         ),
         Positioned(
           right: 14,
@@ -58,9 +58,8 @@ class ArticleWidget extends StatelessWidget {
           bottom: 0,
           left: 0,
           child: SizedBox(
-              //color: Colors.transparent,
               height: 30,
-              child: RedirectToWebsite(url: article.articleUrl)),
+              child: RedirectToWebsite(url: article.articleUrl.trim())),
         ),
       ],
     );
