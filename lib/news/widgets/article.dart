@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:short_news_mobile/news/models/news_article.dart';
-import 'package:short_news_mobile/widgets/headline.dart';
-import 'package:short_news_mobile/widgets/published_at_news_website.dart';
-import 'package:short_news_mobile/widgets/redirect_to_website.dart';
-import 'package:short_news_mobile/widgets/share_button.dart';
-import 'package:short_news_mobile/widgets/short_news.dart';
 
+import '../models/news_article.dart';
 import 'article_image.dart';
+import 'headline.dart';
+import 'published_at_news_website.dart';
+import 'redirect_to_website.dart';
+import 'share_button.dart';
+import 'short_news.dart';
 
 class ArticleWidget extends StatelessWidget {
   final NewsArticle article;
