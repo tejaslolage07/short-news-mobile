@@ -30,10 +30,11 @@ class ArticleWidget extends StatelessWidget {
             height: double.infinity,
             child: SingleChildScrollView(
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Headline(text: article.headline),
-                  const SizedBox(height: 7),
+                  const SizedBox(height: 5),
                   PublishedAtNewsWebsite(
                     publishedAt: article.publishedAt,
                     newsWebsite: article.newsWebsite.website,
