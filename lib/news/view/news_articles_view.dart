@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:short_news_mobile/news/bloc/news_articles_bloc.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
 import '../widgets/article_list.dart';
 
 class NewsArticlesView extends StatelessWidget {
