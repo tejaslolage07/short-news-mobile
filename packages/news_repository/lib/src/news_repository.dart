@@ -8,11 +8,11 @@ class NewsRepository {
   /// {@macro news_repository}
   NewsRepository({NewsApiClient? newsApiCLient})
       : _newsApiCLient = newsApiCLient ?? NewsApiClient();
-  final NewsApiClient? _newsApiCLient;
+  final NewsApiClient _newsApiCLient;
 
   Future<NewsArticles> getNewsArticles(
       {String? cursor, int count = 100}) async {
-    final newsApiResponse = await _newsApiCLient!.getNewsArticles(
+    final newsApiResponse = await _newsApiCLient.getNewsArticles(
       cursor: cursor,
       count: count,
     );
