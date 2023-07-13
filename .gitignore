@@ -46,3 +46,5 @@ app.*.map.json
 packages/*/README.md
 packages/*/coverage_badge.svg
 packages/*/.github
+
+google-services.json
