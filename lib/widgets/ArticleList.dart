@@ -32,20 +32,19 @@ class ArticleList extends StatelessWidget {
               color: Color(Random().nextInt(0xffffffff)),
               height: MediaQuery.of(context).size.height,
             );
-          } else if (index ==
-                  stateProvider.state.newsArticles.articles.length &&
+          }
+          if (index == stateProvider.state.newsArticles.articles.length &&
               (stateProvider.state.newsArticles.nextCursor == null ||
                   stateProvider.state.newsArticles.nextCursor == '')) {
             return const Center(
               child: Text('Hit Refresh to fetch the latest articles'),
             );
-          } else {
-            addFetchEvent(
-              stateProvider,
-              cursor: stateProvider.state.newsArticles.nextCursor ?? '',
-            );
-            return const Center(child: CircularProgressIndicator());
           }
+          addFetchEvent(
+            stateProvider,
+            cursor: stateProvider.state.newsArticles.nextCursor ?? '',
+          );
+          return const Center(child: CircularProgressIndicator());
         },
         itemCount: stateProvider.state.newsArticles.articles.length + 1,
       ),
