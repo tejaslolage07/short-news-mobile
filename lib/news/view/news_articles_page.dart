@@ -5,7 +5,6 @@ import 'package:news_repository/news_repository.dart';
 import 'package:short_news_mobile/news/bloc/news_articles_bloc.dart';
 
 import '../widgets/ news_articles_app_bar.dart';
-
 import 'news_articles_view.dart';
 
 class NewsArticlesPage extends StatelessWidget {
