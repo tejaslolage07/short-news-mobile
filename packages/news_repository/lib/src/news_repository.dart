@@ -6,9 +6,9 @@ import 'package:news_repository/news_repository.dart';
 /// {@endtemplate}
 class NewsRepository {
   /// {@macro news_repository}
-  NewsRepository({NewsApiCLient? newsApiCLient})
-      : _newsApiCLient = newsApiCLient ?? NewsApiCLient();
-  final NewsApiCLient? _newsApiCLient;
+  NewsRepository({NewsApiClient? newsApiCLient})
+      : _newsApiCLient = newsApiCLient ?? NewsApiClient();
+  final NewsApiClient? _newsApiCLient;
 
   Future<NewsArticles> getNewsArticles(
       {String? cursor, int count = 100}) async {
