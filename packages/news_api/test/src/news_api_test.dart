@@ -5,7 +5,7 @@ import 'package:test/test.dart';
 void main() {
   group('NewsApi', () {
     test('can be instantiated', () {
-      expect(NewsApiCLient(), isNotNull);
+      expect(NewsApiClient(), isNotNull);
     });
   });
 }
