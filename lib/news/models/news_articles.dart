@@ -26,7 +26,7 @@ class NewsArticles extends Equatable {
       newsRepository.NewsArticles articlesList) {
     final List<NewsArticle> newsArticles = [];
 
-    articlesList.articles.map((article) {
+    for (var article in articlesList.articles) {
       newsArticles.add(
         NewsArticle(
           id: article.id,
@@ -48,7 +48,7 @@ class NewsArticles extends Equatable {
           ),
         ),
       );
-    });
+    }
     return NewsArticles(
       articles: newsArticles,
       nextCursor: articlesList.nextCursor,

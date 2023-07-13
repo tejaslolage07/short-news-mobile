@@ -19,7 +19,7 @@ class NewsRepository {
 
     final List<NewsArticle> articles = [];
 
-    newsApiResponse.articles.map((article) {
+    for (var article in newsApiResponse.articles) {
       articles.add(
         NewsArticle(
           id: article.id,
@@ -41,8 +41,7 @@ class NewsRepository {
           ),
         ),
       );
-    });
-
+    }
     return NewsArticles(
       articles: articles,
       nextCursor: newsApiResponse.nextCursor,
