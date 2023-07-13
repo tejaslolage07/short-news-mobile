@@ -35,20 +35,19 @@ class ArticleList extends StatelessWidget {
           if (index < stateProvider.state.newsArticles.articles.length) {
             final article = stateProvider.state.newsArticles.articles[index];
             return ArticleWidget(article);
-          } else if (index ==
-                  stateProvider.state.newsArticles.articles.length &&
+          }
+          if (index == stateProvider.state.newsArticles.articles.length &&
               (stateProvider.state.newsArticles.nextCursor == null ||
                   stateProvider.state.newsArticles.nextCursor == '')) {
             return Center(
               child: Text(localization.endOfListText),
             );
-          } else {
-            addFetchEvent(
-              stateProvider,
-              cursor: stateProvider.state.newsArticles.nextCursor ?? '',
-            );
-            return const Center(child: CircularProgressIndicator());
           }
+          addFetchEvent(
+            stateProvider,
+            cursor: stateProvider.state.newsArticles.nextCursor ?? '',
+          );
+          return const Center(child: CircularProgressIndicator());
         },
         itemCount: stateProvider.state.newsArticles.articles.length + 1,
       ),
