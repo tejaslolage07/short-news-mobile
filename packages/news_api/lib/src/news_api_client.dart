@@ -7,9 +7,9 @@ import 'package:news_api/news_api.dart';
 /// {@template news_api}
 /// Repo for News API Client
 /// {@endtemplate}
-class NewsApiCLient {
+class NewsApiClient {
   /// {@macro news_api}
-  NewsApiCLient({http.Client? httpClient})
+  NewsApiClient({http.Client? httpClient})
       : _httpClient = httpClient ?? http.Client();
 
   static const _baseApiUrl = 'https://tnexta.com/short-news/api/v1';
