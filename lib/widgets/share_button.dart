@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ShareButton extends StatelessWidget {
   final String url;
@@ -9,14 +9,18 @@ class ShareButton extends StatelessWidget {
     required this.url,
   }) : super(key: key);
 
-  void onPressed() {
-    Share.share(url);
+  void _onPressed(BuildContext context) {
+    final box = context.findRenderObject() as RenderBox?;
+    Share.share(
+      url,
+      sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton.small(
-      onPressed: onPressed,
+      onPressed: () => _onPressed(context),
       child: const Icon(Icons.share),
     );
   }
