@@ -22,7 +22,7 @@ class RedirectToWebsite extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         AppLocalizations.of(context)!.openInBrowser,
-        style: Theme.of(context).textTheme.bodyLarge,
+        style: Theme.of(context).textTheme.bodyMedium,
       ),
     );
   }
