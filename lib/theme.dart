@@ -16,6 +16,20 @@ class AppTheme {
       useMaterial3: true,
       colorScheme: colorScheme,
       scaffoldBackgroundColor: Colors.white,
+      appBarTheme: AppBarTheme(
+        surfaceTintColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: colorScheme.primary,
+        ),
+        titleTextStyle: GoogleFonts.ubuntu(
+          fontSize: 25,
+          color: colorScheme.primary,
+        ),
+        backgroundColor: Colors.white,
+        foregroundColor: colorScheme.primary,
+      ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
         backgroundColor: colorScheme.primary,
         foregroundColor: colorScheme.onPrimary,
