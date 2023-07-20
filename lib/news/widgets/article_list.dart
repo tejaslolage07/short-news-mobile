@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:short_news_mobile/news/bloc/news_articles_bloc.dart';
 
 class ArticleList extends StatelessWidget {
-  ArticleList({super.key});
+  const ArticleList({super.key});
 
   void addFetchEvent(NewsArticleBloc stateProvider,
       {String cursor = '', int count = 100}) {
@@ -17,11 +17,17 @@ class ArticleList extends StatelessWidget {
     );
   }
 
+  void addRefreshEvent(NewsArticleBloc stateProvider) {
+    stateProvider.add(
+      NewsArticlesRefresh(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final stateProvider = BlocProvider.of<NewsArticleBloc>(context);
     return RefreshIndicator(
-      onRefresh: () async => addFetchEvent(stateProvider),
+      onRefresh: () async => addRefreshEvent(stateProvider),
       child: PageView.builder(
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {

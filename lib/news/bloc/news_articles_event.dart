@@ -15,3 +15,8 @@ final class NewsArticlesFetch extends NewsArticlesEvent {
   @override
   List<Object> get props => [cursor, count];
 }
+
+final class NewsArticlesRefresh extends NewsArticlesEvent {
+  @override
+  List<Object> get props => [];
+}

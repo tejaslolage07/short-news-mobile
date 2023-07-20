@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:short_news_mobile/news/bloc/news_articles_bloc.dart';
 
-import '../../widgets/ArticleList.dart';
+import '../widgets/article_list.dart';
 
 class NewsArticlesView extends StatefulWidget {
   const NewsArticlesView({super.key});

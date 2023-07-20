@@ -14,6 +14,7 @@ class NewsArticleBloc extends Bloc<NewsArticlesEvent, NewsArticlesState> {
   })  : _newsRepository = newsRepository,
         super(NewsArticlesState()) {
     on<NewsArticlesFetch>(_onNewsArticlesFetch);
+    on<NewsArticlesRefresh>(_onNewsArticlesRefresh);
   }
   final NewsRepository _newsRepository;
 
@@ -32,5 +33,14 @@ class NewsArticleBloc extends Bloc<NewsArticlesEvent, NewsArticlesState> {
     } on Exception {
       emit(state.copyWith(status: NewsArticlesStatus.failure));
     }
+  }
+
+  void _onNewsArticlesRefresh(
+    NewsArticlesRefresh event,
+    Emitter<NewsArticlesState> emit,
+  ) {
+    emit(
+      NewsArticlesState(),
+    );
   }
 }
