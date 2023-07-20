@@ -1,18 +1,6 @@
 {
     "language": "English",
-    "@language": {
-        "description": "The current language"
-    },
     "articleAppBarTitle": "Feed",
-    "@articleAppBarTitle": {
-        "description": "The title of the app bar when viewing the article's list"
-    },
     "failedToLoadArticles": "Failed to get news articles",
-    "@failedToLoadArticles": {
-        "description": "Error message when the app fails to load articles"
-    },
-    "endOfListText": "Hit Refresh to read the latest articles!",
-    "@endOfListText": {
-        "description": "Text displayed at the end of the list of articles"
-    }
+    "endOfListText": "Hit Refresh to read the latest articles!"
 }
