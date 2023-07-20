@@ -24,31 +24,27 @@ class NewsArticles extends Equatable {
 
   factory NewsArticles.fromRepository(
       newsRepository.NewsArticles articlesList) {
-    final List<NewsArticle> newsArticles = [];
-
-    for (var article in articlesList.articles) {
-      newsArticles.add(
-        NewsArticle(
-          id: article.id,
-          shortNews: article.shortNews,
-          headline: article.headline,
-          author: article.author,
-          newsWebsiteId: article.newsWebsiteId,
-          articleUrl: article.articleUrl,
-          imageUrl: article.imageUrl,
-          publishedAt: article.publishedAt,
-          source: article.source,
-          country: article.country,
-          language: article.language,
-          category: article.category,
-          keywords: article.keywords,
-          newsWebsite: NewsWebsite(
-            id: article.newsWebsite.id,
-            website: article.newsWebsite.website,
-          ),
-        ),
-      );
-    }
+    final List<NewsArticle> newsArticles = articlesList.articles
+        .map((article) => NewsArticle(
+              id: article.id,
+              shortNews: article.shortNews,
+              headline: article.headline,
+              author: article.author,
+              newsWebsiteId: article.newsWebsiteId,
+              articleUrl: article.articleUrl,
+              imageUrl: article.imageUrl,
+              publishedAt: article.publishedAt,
+              source: article.source,
+              country: article.country,
+              language: article.language,
+              category: article.category,
+              keywords: article.keywords,
+              newsWebsite: NewsWebsite(
+                id: article.newsWebsite.id,
+                website: article.newsWebsite.website,
+              ),
+            ))
+        .toList();
     return NewsArticles(
       articles: newsArticles,
       nextCursor: articlesList.nextCursor,
