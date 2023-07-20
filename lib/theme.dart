@@ -57,7 +57,7 @@ class AppTheme {
           color: Colors.black54,
         ),
         bodySmall: GoogleFonts.ubuntu(
-          fontSize: 14,
+          fontSize: 12,
           fontWeight: FontWeight.normal,
           color: Colors.black38,
         ),
