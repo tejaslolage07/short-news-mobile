@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_repository/news_repository.dart';
+import 'package:short_news_mobile/theme.dart';
+import 'l10n/l10n.dart';
+import 'news/view/news_articles_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'views/short_news_app_view.dart';
 
