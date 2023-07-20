@@ -96,10 +96,7 @@ class AppTheme {
               MaterialStateProperty.all(const Color.fromARGB(255, 66, 66, 66)),
           shape: MaterialStateProperty.all(
             const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(100),
-                topRight: Radius.circular(100),
-              ),
+              borderRadius: BorderRadius.only(),
             ),
           ),
         ),
