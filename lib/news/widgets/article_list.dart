@@ -29,6 +29,7 @@ class ArticleList extends StatelessWidget {
     final localization = AppLocalizations.of(context)!;
     final stateProvider = BlocProvider.of<NewsArticleBloc>(context);
     return RefreshIndicator(
+      color: Theme.of(context).colorScheme.onPrimary, // TO CHANGE
       onRefresh: () async => addRefreshEvent(stateProvider),
       child: PageView.builder(
         scrollDirection: Axis.vertical,
@@ -45,14 +46,18 @@ class ArticleList extends StatelessWidget {
               (stateProvider.state.newsArticles.nextCursor == null ||
                   stateProvider.state.newsArticles.nextCursor == '')) {
             return Center(
-              child: Text(localization.endOfListText),
+              child: Text(localization.endOfListText,
+                  style: Theme.of(context).textTheme.bodyLarge),
             );
           }
           addFetchEvent(
             stateProvider,
             cursor: stateProvider.state.newsArticles.nextCursor ?? '',
           );
-          return const Center(child: CircularProgressIndicator());
+          return Center(
+              child: CircularProgressIndicator(
+            color: Theme.of(context).colorScheme.onPrimary,
+          ));
         },
         itemCount: stateProvider.state.newsArticles.articles.length + 1,
       ),
