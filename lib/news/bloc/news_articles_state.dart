@@ -1,4 +1,4 @@
-part of 'news_articles_cubit.dart';
+part of 'news_articles_bloc.dart';
 
 enum NewsArticlesStatus { initial, success, failure }
 
@@ -17,9 +17,6 @@ final class NewsArticlesState extends Equatable {
 
   final NewsArticles newsArticles;
   final NewsArticlesStatus status;
-
-  factory NewsArticlesState.fromJson(Map<String, dynamic> json) =>
-      _$NewsArticlesStateFromJson(json);
 
   NewsArticlesState copyWith({
     NewsArticlesStatus? status,
@@ -49,8 +46,6 @@ final class NewsArticlesState extends Equatable {
       ),
     );
   }
-
-  Map<String, dynamic> toJson() => _$NewsArticlesStateToJson(this);
 
   @override
   List<Object?> get props => [status, newsArticles];

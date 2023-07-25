@@ -9,43 +9,25 @@ class AppTheme {
   AppTheme();
 
   static ThemeData get lightTheme {
-    final colorScheme =
-        ColorScheme.fromSeed(seedColor: AppConstants.themeColor);
+    const ColorScheme colorScheme = ColorScheme.light(
+      primary: Colors.white,
+      onPrimary: AppConstants.themeColor,
+      secondary: AppConstants.themeColor,
+      onSecondary: Colors.white,
+      background: Colors.white,
+      onBackground: AppConstants.themeColor,
+    );
 
     return ThemeData(
       useMaterial3: true,
+      brightness: Brightness.light,
       colorScheme: colorScheme,
       scaffoldBackgroundColor: Colors.white,
-      appBarTheme: AppBarTheme(
-        surfaceTintColor: Colors.white,
-        centerTitle: true,
-        elevation: 0,
-        iconTheme: IconThemeData(
-          color: colorScheme.primary,
-        ),
-        titleTextStyle: GoogleFonts.ubuntu(
-          fontSize: 25,
-          color: colorScheme.primary,
-        ),
-        backgroundColor: Colors.white,
-        foregroundColor: colorScheme.primary,
-      ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: colorScheme.primary,
-        foregroundColor: colorScheme.onPrimary,
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(colorScheme.primary),
-          foregroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
-          shape: MaterialStateProperty.all(
-            const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(),
-            ),
-          ),
-        ),
-      ),
       textTheme: TextTheme(
+        titleLarge: GoogleFonts.ubuntu(
+          fontSize: 26,
+          color: colorScheme.onPrimary,
+        ),
         titleSmall: GoogleFonts.ubuntu(
           fontSize: 18,
           fontWeight: FontWeight.bold,
@@ -71,40 +53,27 @@ class AppTheme {
   }
 
   static ThemeData get darkTheme {
+    const ColorScheme darkColorScheme = ColorScheme.dark(
+      primary: AppConstants.darkThemeColor,
+      onPrimary: Colors.white,
+      secondary: AppConstants.darkThemeColor,
+      onSecondary: Colors.white,
+      background: Color.fromARGB(255, 48, 48, 48),
+      onBackground: Color.fromARGB(255, 66, 66, 66),
+    );
+
     return ThemeData(
       useMaterial3: true,
-      scaffoldBackgroundColor: const Color.fromARGB(255, 48, 48, 48),
-      appBarTheme: AppBarTheme(
-        foregroundColor: Colors.white,
-        centerTitle: true,
-        elevation: 0,
-        iconTheme: const IconThemeData(
-          color: Colors.white,
-        ),
-        titleTextStyle: GoogleFonts.ubuntu(
-          fontSize: 25,
-        ),
-        backgroundColor: const Color.fromARGB(255, 66, 66, 66),
-      ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: Color.fromARGB(255, 75, 75, 75),
-        foregroundColor: Colors.white,
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-          backgroundColor:
-              MaterialStateProperty.all(const Color.fromARGB(255, 66, 66, 66)),
-          shape: MaterialStateProperty.all(
-            const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(),
-            ),
-          ),
-        ),
-      ),
+      scaffoldBackgroundColor: darkColorScheme.background,
+      colorScheme: darkColorScheme,
       iconTheme: const IconThemeData(
         color: Color.fromARGB(255, 66, 66, 66),
       ),
       textTheme: TextTheme(
+        titleLarge: GoogleFonts.ubuntu(
+          fontSize: 26,
+          color: darkColorScheme.onPrimary,
+        ),
         titleSmall: GoogleFonts.ubuntu(
           fontSize: 18,
           fontWeight: FontWeight.bold,
@@ -116,7 +85,7 @@ class AppTheme {
           color: const Color.fromARGB(255, 225, 225, 225),
         ),
         bodySmall: GoogleFonts.ubuntu(
-          fontSize: 14,
+          fontSize: 12,
           fontWeight: FontWeight.normal,
           color: Colors.grey,
         ),

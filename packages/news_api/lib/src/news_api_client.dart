@@ -7,19 +7,27 @@ import 'package:news_api/news_api.dart';
 /// {@template news_api}
 /// Repo for News API Client
 /// {@endtemplate}
-class NewsApiCLient {
+class NewsApiClient {
   /// {@macro news_api}
-  NewsApiCLient({http.Client? httpClient})
+  NewsApiClient({http.Client? httpClient})
       : _httpClient = httpClient ?? http.Client();
 
-  static const _baseApiUrl = 'https://tnexta.com/short-news/api/v1';
+  static const _baseApiUrl = 'tnexta.com';
   final http.Client _httpClient;
 
-  Future<NewsApiResponse> getNewsArticles(
-      {String? cursor, int count = 100}) async {
-    var url = '$_baseApiUrl/news?cursor=$cursor&count=$count';
+  Future<NewsApiResponse> getNewsArticles({
+    String? cursor,
+    int count = 100,
+  }) async {
+    cursor ??= '';
+    final url = Uri(
+      scheme: 'https',
+      host: _baseApiUrl,
+      path: '/short-news/api/v1/news',
+      queryParameters: {'cursor': cursor, 'count': count.toString()},
+    );
 
-    final response = await _httpClient.get(Uri.parse(url));
+    final response = await _httpClient.get(url);
     if (response.statusCode != 200) {
       throw Exception(response.toString());
     }
