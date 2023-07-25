@@ -1,26 +1,8 @@
 {
   "language": "English",
-  "@language": {
-    "description": "The current language"
-  },
   "articleAppBarTitle": "Feed",
-  "@articleAppBarTitle": {
-    "description": "The title of the app bar when viewing the article's list"
-  },
   "failedToLoadArticles": "Failed to get news articles",
-  "@failedToLoadArticles": {
-    "description": "Error message when the app fails to load articles"
-  },
   "endOfListText": "Hit Refresh to read the latest articles!",
-  "@endOfListText": {
-    "description": "Text displayed at the end of the list of articles"
-  },
   "openInBrowser": "Click here to read more",
-  "@openInBrowser": {
-    "description": "Text for the context menu item that opens the article in the browser"
-  },
-  "couldNotOpen": "Could not open URL",
-  "@couldNotOpen": {
-    "description": "Error message when the app fails to open article url in the browser"
-  }
+  "couldNotOpen": "Could not open URL"
 }
