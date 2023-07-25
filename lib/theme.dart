@@ -1,8 +1,5 @@
-import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:short_news_mobile/app_constants.dart';
 
 class AppTheme {
@@ -11,11 +8,11 @@ class AppTheme {
   static ThemeData get lightTheme {
     const ColorScheme colorScheme = ColorScheme.light(
       primary: Colors.white,
-      onPrimary: AppConstants.themeColor,
-      secondary: AppConstants.themeColor,
+      onPrimary: AppConstants.lightThemeColor,
+      secondary: AppConstants.lightThemeColor,
       onSecondary: Colors.white,
       background: Colors.white,
-      onBackground: AppConstants.themeColor,
+      onBackground: AppConstants.lightThemeColor,
     );
 
     return ThemeData(
@@ -95,37 +92,6 @@ class AppTheme {
           color: Colors.grey,
         ),
       ),
-    );
-  }
-
-  static NativeTemplateStyle getNativeAdTheme() {
-    bool isDarkMode =
-        WidgetsBinding.instance.platformDispatcher.platformBrightness ==
-            ui.Brightness.dark;
-    Color mainBackgroundColor;
-    Color backgroundColor;
-    Color textColor;
-    if (isDarkMode) {
-      mainBackgroundColor = const Color.fromARGB(255, 48, 48, 48);
-      backgroundColor = const Color.fromARGB(255, 48, 48, 48);
-      textColor = Colors.white;
-    } else {
-      mainBackgroundColor = Colors.white;
-      backgroundColor = Colors.white;
-      textColor = AppConstants.themeColor;
-    }
-    return NativeTemplateStyle(
-      templateType: TemplateType.medium,
-      mainBackgroundColor: mainBackgroundColor,
-      cornerRadius: 10.0,
-      callToActionTextStyle: NativeTemplateTextStyle(
-          textColor: textColor, backgroundColor: backgroundColor, size: 16.0),
-      primaryTextStyle: NativeTemplateTextStyle(
-          textColor: textColor, backgroundColor: backgroundColor, size: 16.0),
-      secondaryTextStyle: NativeTemplateTextStyle(
-          textColor: textColor, backgroundColor: backgroundColor, size: 16.0),
-      tertiaryTextStyle: NativeTemplateTextStyle(
-          textColor: textColor, backgroundColor: backgroundColor, size: 16.0),
     );
   }
 }
