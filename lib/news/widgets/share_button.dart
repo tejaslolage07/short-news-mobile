@@ -9,20 +9,16 @@ class ShareButton extends StatelessWidget {
     required this.url,
   }) : super(key: key);
 
-  void _onPressed(BuildContext context) {
-    final box = context.findRenderObject() as RenderBox?;
-    Share.share(
-      url,
-      sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
-    );
+  void onPressed() {
+    Share.share(url);
   }
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton.small(
-      onPressed: () => _onPressed(context),
-      backgroundColor: Theme.of(context).colorScheme.primary,
-      foregroundColor: Theme.of(context).colorScheme.onPrimary,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
+      foregroundColor: Theme.of(context).colorScheme.onSecondary,
+      onPressed: onPressed,
       child: const Icon(Icons.share),
     );
   }
