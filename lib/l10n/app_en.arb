@@ -3,6 +3,5 @@
   "articleAppBarTitle": "Feed",
   "failedToLoadArticles": "Failed to get news articles",
   "endOfListText": "Hit Refresh to read the latest articles!",
-  "openInBrowser": "Click here to read more",
-  "couldNotOpen": "Could not open URL"
+  "openInBrowser": "Click here to read more"
 }
