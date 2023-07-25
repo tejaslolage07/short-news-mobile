@@ -11,8 +11,12 @@ class ArticlesAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     AppLocalizations localizations = AppLocalizations.of(context)!;
     return AppBar(
+      surfaceTintColor: Colors.white,
       centerTitle: true,
       elevation: 0,
+      titleTextStyle: Theme.of(context).textTheme.titleLarge,
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      foregroundColor: Theme.of(context).colorScheme.onPrimary,
       title: Text(localizations.articleAppBarTitle),
       actions: [
         IconButton(
