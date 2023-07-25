@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:short_news_mobile/google_ads/bloc/google_ads_bloc.dart';
 import 'package:short_news_mobile/news/bloc/news_articles_bloc.dart';
 
 class ArticlesAppBar extends StatelessWidget implements PreferredSizeWidget {
