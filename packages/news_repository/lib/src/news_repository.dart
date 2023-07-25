@@ -6,42 +6,40 @@ import 'package:news_repository/news_repository.dart';
 /// {@endtemplate}
 class NewsRepository {
   /// {@macro news_repository}
-  NewsRepository({NewsApiCLient? newsApiCLient})
-      : _newsApiCLient = newsApiCLient ?? NewsApiCLient();
-  final NewsApiCLient? _newsApiCLient;
+  NewsRepository({NewsApiClient? newsApiCLient})
+      : _newsApiCLient = newsApiCLient ?? NewsApiClient();
+  final NewsApiClient _newsApiCLient;
 
   Future<NewsArticles> getNewsArticles(
       {String? cursor, int count = 100}) async {
-    final newsApiResponse = await _newsApiCLient!.getNewsArticles(
+    final newsApiResponse = await _newsApiCLient.getNewsArticles(
       cursor: cursor,
       count: count,
     );
 
-    final List<NewsArticle> articles = [];
-
-    for (var article in newsApiResponse.articles) {
-      articles.add(
-        NewsArticle(
-          id: article.id,
-          shortNews: article.shortNews,
-          headline: article.headline,
-          author: article.author ?? '',
-          newsWebsiteId: article.newsWebsiteId,
-          articleUrl: article.articleUrl,
-          imageUrl: article.imageUrl ?? '',
-          publishedAt: article.publishedAt,
-          source: article.source ?? '',
-          country: article.country ?? [],
-          language: article.language ?? '',
-          category: article.category ?? [],
-          keywords: article.keywords ?? [],
-          newsWebsite: NewsWebsite(
-            id: article.newsWebsite.id,
-            website: article.newsWebsite.website,
+    final articles = newsApiResponse.articles
+        .map(
+          (article) => NewsArticle(
+            id: article.id,
+            shortNews: article.shortNews,
+            headline: article.headline,
+            author: article.author ?? '',
+            newsWebsiteId: article.newsWebsiteId,
+            articleUrl: article.articleUrl,
+            imageUrl: article.imageUrl ?? '',
+            publishedAt: article.publishedAt,
+            source: article.source ?? '',
+            country: article.country ?? [],
+            language: article.language ?? '',
+            category: article.category ?? [],
+            keywords: article.keywords ?? [],
+            newsWebsite: NewsWebsite(
+              id: article.newsWebsite.id,
+              website: article.newsWebsite.website,
+            ),
           ),
-        ),
-      );
-    }
+        )
+        .toList();
     return NewsArticles(
       articles: articles,
       nextCursor: newsApiResponse.nextCursor,
