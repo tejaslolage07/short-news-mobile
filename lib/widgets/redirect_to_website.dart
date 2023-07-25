@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -10,16 +9,22 @@ class RedirectToWebsite extends StatelessWidget {
 
   void onPressed() async {
     final Uri urlToBeLaunched = Uri.parse(url);
-    if (!await launchUrl(urlToBeLaunched)) {
-      var couldNotOpen = Intl.message('couldNotOpen');
-      throw Exception('$couldNotOpen $urlToBeLaunched');
-    }
+    await launchUrl(urlToBeLaunched);
   }
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(),
+        ),
+        backgroundColor: MaterialStateProperty.all(
+            Theme.of(context).colorScheme.onBackground),
+        foregroundColor:
+            MaterialStateProperty.all(Theme.of(context).colorScheme.primary),
+      ),
       child: Text(
         AppLocalizations.of(context)!.openInBrowser,
         style: Theme.of(context).textTheme.bodyMedium,
