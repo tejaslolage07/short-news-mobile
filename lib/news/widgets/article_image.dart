@@ -12,7 +12,7 @@ class ArticleImage extends StatelessWidget {
       margin: EdgeInsets.zero,
       child: CachedNetworkImage(
         imageUrl: url,
-        fit: BoxFit.fill,
+        fit: BoxFit.cover,
         width: double.infinity,
         errorWidget: (context, url, error) => Image.asset(
           'assets/images/placeholder.png',
