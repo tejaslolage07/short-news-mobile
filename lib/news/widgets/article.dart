@@ -8,59 +8,116 @@ import 'redirect_to_website.dart';
 import 'share_button.dart';
 import 'short_news.dart';
 
-class ArticleWidget extends StatelessWidget {
+class ArticleWidget extends StatefulWidget {
   final NewsArticle article;
-  const ArticleWidget(this.article, {super.key});
+  final PageController pageController;
+  const ArticleWidget(this.article, this.pageController, {super.key});
+
+  @override
+  State<ArticleWidget> createState() => _ArticleWidgetState();
+}
+
+class _ArticleWidgetState extends State<ArticleWidget> {
+  late final ScrollController scrollController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    scrollController = ScrollController()
+      ..addListener(() {
+        if (scrollController.offset >
+            scrollController.position.maxScrollExtent + 150) {
+          if (scrollController.position.isScrollingNotifier.value) {
+            widget.pageController.nextPage(
+                duration: const Duration(milliseconds: 400),
+                curve: Curves.easeInOut);
+          }
+        }
+
+        if (scrollController.offset <
+            scrollController.position.minScrollExtent - 150) {
+          if (widget.pageController.page != 0) {
+            widget.pageController.previousPage(
+                duration: const Duration(milliseconds: 400),
+                curve: Curves.easeInOut);
+          }
+        }
+      });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
-    return Stack(
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
-          height: mediaQuery.size.height / 3.2,
-          child: ArticleImage(article.imageUrl.trim()),
+        Stack(
+          children: [
+            SizedBox(
+              height: mediaQuery.size.height / 3.2,
+              child: ArticleImage(widget.article.imageUrl.trim()),
+            ),
+            Positioned(
+              right: 5,
+              top: mediaQuery.size.height / 3.2 - 50,
+              child: ShareButton(url: widget.article.articleUrl),
+            ),
+          ],
         ),
-        Positioned(
-          right: 14,
-          left: 14,
-          top: 4 + mediaQuery.size.height / 3.2,
-          bottom: 0,
-          child: SizedBox(
-            height: double.infinity,
+        SizedBox(height: 4),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14),
+          child: Headline(text: widget.article.headline),
+        ),
+        const SizedBox(height: 5),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14.0),
+          child: PublishedAtNewsWebsite(
+            publishedAt: widget.article.publishedAt,
+            newsWebsite: widget.article.newsWebsite.website,
+          ),
+        ),
+        const SizedBox(height: 10),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14),
             child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              controller: scrollController,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Headline(text: article.headline),
-                  const SizedBox(height: 5),
-                  PublishedAtNewsWebsite(
-                    publishedAt: article.publishedAt,
-                    newsWebsite: article.newsWebsite.website,
-                  ),
-                  const SizedBox(height: 10),
-                  ShortNews(newsArticle: article.shortNews),
-                  const SizedBox(
-                    height: 55,
+                  ShortNews(
+                    newsArticle: widget.article.shortNews +
+                        widget.article.shortNews +
+                        widget.article.shortNews +
+                        widget.article.shortNews +
+                        widget.article.shortNews +
+                        widget.article.shortNews +
+                        widget.article.shortNews,
                   ),
                 ],
               ),
             ),
           ),
         ),
-        Positioned(
-          right: 5,
-          top: mediaQuery.size.height / 3.2 - 50,
-          child: ShareButton(url: article.articleUrl),
-        ),
-        Positioned(
-          right: 0,
-          bottom: 0,
-          left: 0,
-          child: SizedBox(
-              height: 45,
-              child: RedirectToWebsite(url: article.articleUrl.trim())),
+        const SizedBox(height: 4),
+        SizedBox(
+          width: double.infinity,
+          height: 45,
+          child: RedirectToWebsite(
+            url: widget.article.articleUrl.trim(),
+          ),
         ),
       ],
     );

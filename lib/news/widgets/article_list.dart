@@ -4,9 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:short_news_mobile/news/bloc/news_articles_bloc.dart';
+import 'package:short_news_mobile/news/widgets/article.dart';
 
-class ArticleList extends StatelessWidget {
+class ArticleList extends StatefulWidget {
   const ArticleList({super.key});
+
+  @override
+  State<ArticleList> createState() => _ArticleListState();
+}
+
+class _ArticleListState extends State<ArticleList> {
+  late final PageController pageController;
+
+  @override
+  void initState() {
+    pageController = PageController(initialPage: 0);
+    super.initState();
+  }
 
   void addFetchEvent(NewsArticleBloc stateProvider,
       {String cursor = '', int count = 100}) {
@@ -32,15 +46,12 @@ class ArticleList extends StatelessWidget {
       color: Theme.of(context).colorScheme.onPrimary, // TO CHANGE
       onRefresh: () async => addRefreshEvent(stateProvider),
       child: PageView.builder(
+        controller: pageController,
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           if (index < stateProvider.state.newsArticles.articles.length) {
             final article = stateProvider.state.newsArticles.articles[index];
-            return Container(
-              child: Text('${article.id}'),
-              color: Color(Random().nextInt(0xffffffff)),
-              height: MediaQuery.of(context).size.height,
-            );
+            return ArticleWidget(article, pageController);
           }
           if (index == stateProvider.state.newsArticles.articles.length &&
               (stateProvider.state.newsArticles.nextCursor == null ||
