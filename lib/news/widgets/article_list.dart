@@ -41,7 +41,7 @@ class _ArticleListState extends State<ArticleList> {
     final localization = AppLocalizations.of(context)!;
     final stateProvider = BlocProvider.of<NewsArticleBloc>(context);
     return RefreshIndicator(
-      color: Theme.of(context).colorScheme.onPrimary, // TO CHANGE
+      color: Theme.of(context).colorScheme.onPrimary,
       onRefresh: () async => addRefreshEvent(stateProvider),
       child: PageView.builder(
         controller: pageController,
