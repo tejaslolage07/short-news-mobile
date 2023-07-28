@@ -22,7 +22,6 @@ class _ArticleWidgetState extends State<ArticleWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     scrollController = ScrollController()
       ..addListener(() {
         if (scrollController.offset >
@@ -48,7 +47,6 @@ class _ArticleWidgetState extends State<ArticleWidget> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     scrollController.dispose();
     super.dispose();
   }
@@ -73,7 +71,7 @@ class _ArticleWidgetState extends State<ArticleWidget> {
             ),
           ],
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14),
           child: Headline(text: widget.article.headline),
@@ -97,15 +95,7 @@ class _ArticleWidgetState extends State<ArticleWidget> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ShortNews(
-                    newsArticle: widget.article.shortNews +
-                        widget.article.shortNews +
-                        widget.article.shortNews +
-                        widget.article.shortNews +
-                        widget.article.shortNews +
-                        widget.article.shortNews +
-                        widget.article.shortNews,
-                  ),
+                  ShortNews(newsArticle: widget.article.shortNews),
                 ],
               ),
             ),
